@@ -11,6 +11,7 @@ import {
 import { useFonts } from "expo-font";
 
 import { MaterialIcons } from "@expo/vector-icons";
+import { Input } from "../components/Input";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -39,6 +40,7 @@ export default function RootLayout() {
           <MaterialIcons name="add-circle" size={30} color="#FFF" />;
           <MaterialIcons name="description" size={30} color="#FFF" />;
           <MaterialIcons name="delete" size={30} color="#FFF" />;
+          <Input />
         </View>
       </SafeAreaView>
     </>
