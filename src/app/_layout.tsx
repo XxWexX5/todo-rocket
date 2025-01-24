@@ -10,6 +10,8 @@ import {
 
 import { useFonts } from "expo-font";
 
+import { MaterialIcons } from "@expo/vector-icons";
+
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     Inter: require("../assets/fonts/Inter/inter.ttf"),
@@ -34,6 +36,9 @@ export default function RootLayout() {
       <SafeAreaView className="mt-[7vh] mx-[5vw]">
         <View>
           <Text className="text-primary-300 font-inter">Hello World!</Text>
+          <MaterialIcons name="add-circle" size={30} color="#FFF" />;
+          <MaterialIcons name="description" size={30} color="#FFF" />;
+          <MaterialIcons name="delete" size={30} color="#FFF" />;
         </View>
       </SafeAreaView>
     </>
