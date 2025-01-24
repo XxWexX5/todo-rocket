@@ -33,7 +33,7 @@ export default function RootLayout() {
 
       <SafeAreaView className="mt-[7vh] mx-[5vw]">
         <View>
-          <Text className="text-blue-500 font-inter">Hello World!</Text>
+          <Text className="text-primary-300 font-inter">Hello World!</Text>
         </View>
       </SafeAreaView>
     </>
