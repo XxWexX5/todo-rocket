@@ -14,9 +14,12 @@ import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { Status } from "../components/Status";
 import { NoTasks } from "../components/NoTasks";
-import { Checkbox } from "../components/Checkbox";
+import { Task } from "../components/Task";
+import { useState } from "react";
 
 export default function RootLayout() {
+  const [isChecked, setIsChecked] = useState(false);
+
   const [fontsLoaded] = useFonts({
     Inter: require("../assets/fonts/Inter/inter.ttf"),
   });
@@ -46,7 +49,12 @@ export default function RootLayout() {
           <Status value={1} />
           <NoTasks />
 
-          <Checkbox />
+          <Task
+            isChecked={isChecked}
+            setIsChecked={setIsChecked}
+            content="Treinar direção"
+            handleDeleteTask={() => null}
+          />
         </View>
       </SafeAreaView>
     </>
