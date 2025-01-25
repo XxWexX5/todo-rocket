@@ -8,13 +8,14 @@ import {
   Text,
   TextInput,
   ScrollView,
+  FlatList,
 } from "react-native";
 
 import { useFonts } from "expo-font";
 
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "../components/Container";
 
 import Logo from "../assets/images/logo.svg";
@@ -45,6 +46,8 @@ export default function RootLayout() {
   }
 
   function handleAddTask() {
+    if (!inputTask) return;
+
     const id = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
     setTasks((prev) => [
@@ -64,7 +67,10 @@ export default function RootLayout() {
       };
     });
 
-    setTasks(data);
+    const tasksChecked = data.filter((task) => task.isChecked);
+    const tasksNoChecked = data.filter((task) => !task.isChecked);
+
+    setTasks([...tasksChecked, ...tasksNoChecked]);
   }
 
   function handleDeleteTask(id: string) {
@@ -74,6 +80,10 @@ export default function RootLayout() {
   }
 
   const countTasksChecked = tasks.filter((task) => task.isChecked).length;
+
+  const sortedTasks = tasks.sort(
+    (a, b) => Number(a.isChecked) - Number(b.isChecked)
+  );
 
   return (
     <View className="bg-neutral-700">
@@ -117,46 +127,39 @@ export default function RootLayout() {
 
                 <View className="bg-neutral-400 w-full h-[.15vh] my-[4vh]"></View>
 
-                {tasks.length > 0 ? (
-                  <ScrollView
-                    showsVerticalScrollIndicator={false}
-                    className="h-[50vh]"
-                  >
-                    <View className="gap-y-[2vh]">
-                      {tasks.map((task) => {
-                        if (!task.isChecked) {
-                          return (
-                            <Task
-                              key={task.id}
-                              id={task.id}
-                              isChecked={task.isChecked}
-                              content={task.content}
-                              handleDeleteTask={handleDeleteTask}
-                              handleCheckTask={handleCheckTask}
-                            />
-                          );
-                        }
-                      })}
+                <FlatList
+                  className="h-[52vh]"
+                  data={sortedTasks}
+                  keyExtractor={(task) => task.id}
+                  renderItem={({ item }) => {
+                    if (!item.isChecked) {
+                      return (
+                        <Task
+                          key={item.id}
+                          id={item.id}
+                          isChecked={item.isChecked}
+                          content={item.content}
+                          handleDeleteTask={handleDeleteTask}
+                          handleCheckTask={handleCheckTask}
+                        />
+                      );
+                    }
 
-                      {tasks.map((task) => {
-                        if (task.isChecked) {
-                          return (
-                            <Task
-                              key={task.id}
-                              id={task.id}
-                              isChecked={task.isChecked}
-                              content={task.content}
-                              handleDeleteTask={handleDeleteTask}
-                              handleCheckTask={handleCheckTask}
-                            />
-                          );
-                        }
-                      })}
-                    </View>
-                  </ScrollView>
-                ) : (
-                  <NoTasks />
-                )}
+                    return (
+                      <Task
+                        key={item.id}
+                        id={item.id}
+                        isChecked={item.isChecked}
+                        content={item.content}
+                        handleDeleteTask={handleDeleteTask}
+                        handleCheckTask={handleCheckTask}
+                      />
+                    );
+                  }}
+                  showsVerticalScrollIndicator={false}
+                  ListEmptyComponent={() => <NoTasks />}
+                  ItemSeparatorComponent={() => <View className="h-[2vh]" />}
+                />
               </Container>
             </View>
           </View>
