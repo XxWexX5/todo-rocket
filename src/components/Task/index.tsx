@@ -8,7 +8,7 @@ interface TaskProps {
   id: string;
   isChecked: boolean;
   content: string;
-  handleDeleteTask: () => void;
+  handleDeleteTask: (id: string) => void;
   handleCheckTask: (id: string) => void;
 }
 
@@ -28,7 +28,7 @@ export function Task({
         content={content}
       />
 
-      <TouchableOpacity onPress={handleDeleteTask}>
+      <TouchableOpacity onPress={() => handleDeleteTask(id)}>
         <Text>
           <MaterialIcons name="delete" size={30} color={colors.neutral[300]} />
         </Text>

@@ -66,6 +66,12 @@ export default function RootLayout() {
     setTasks(data);
   }
 
+  function handleDeleteTask(id: string) {
+    const data = tasks.filter((task) => task.id !== id);
+
+    setTasks(data);
+  }
+
   return (
     <View className="bg-neutral-700">
       <StatusBar
@@ -117,7 +123,7 @@ export default function RootLayout() {
                           id={task.id}
                           isChecked={task.isChecked}
                           content={task.content}
-                          handleDeleteTask={() => null}
+                          handleDeleteTask={handleDeleteTask}
                           handleCheckTask={handleCheckTask}
                         />
                       );
