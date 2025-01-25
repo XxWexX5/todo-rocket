@@ -1,4 +1,4 @@
-Todo Rocket
+#Todo Rocket
 
 Todo Rocket é uma aplicação de controle de tarefas no estilo to-do list, projetada para ajudar os usuários a organizarem suas atividades de forma prática e eficiente.
 
@@ -11,7 +11,7 @@ Funcionalidades
 
 Tecnologias Utilizadas:
 
--React Native: Framework para desenvolvimento mobile.
+- React Native: Framework para desenvolvimento mobile.
 - Expo: Plataforma para desenvolvimento, compilação e deploy de aplicações React Native.
 - nativewind: Utilizado para estilização baseada no Tailwind CSS.
 
