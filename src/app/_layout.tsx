@@ -13,6 +13,7 @@ import { useFonts } from "expo-font";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
+import { Status } from "../components/Status";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -45,6 +46,7 @@ export default function RootLayout() {
             <Input />
             <Button />
           </View>
+          <Status value={1} />
         </View>
       </SafeAreaView>
     </>
