@@ -30,23 +30,18 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 ### Passos:
 
 **Clone este repositório:**
-
 git clone https://github.com/seu-usuario/todo-rocket.git
 
 **Acesse a pasta do projeto:**
-
 cd todo-rocket
 
 **Instale as dependências:**
-
 npm install
 
 **Inicie o servidor de desenvolvimento:**
-
 expo start
 
 Escaneie o QR Code exibido no terminal com o aplicativo Expo Go ou abra o projeto no emulador configurado.
-
 
 ### Licença
 
