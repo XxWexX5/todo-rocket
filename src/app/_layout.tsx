@@ -5,7 +5,7 @@ import {
   StatusBar,
   View,
   ActivityIndicator,
-  Image,
+  Text,
 } from "react-native";
 
 import { useFonts } from "expo-font";
@@ -16,6 +16,7 @@ import { useState } from "react";
 import { Container } from "../components/Container";
 
 import Logo from "../assets/images/logo.svg";
+import { Status } from "../components/Status";
 
 export default function RootLayout() {
   const [isChecked, setIsChecked] = useState(false);
@@ -53,6 +54,26 @@ export default function RootLayout() {
                   <Input />
                   <Button />
                 </View>
+
+                <View className="flex-row justify-between mt-[4.35vh]">
+                  <View className="flex-row items-center gap-[3vw]">
+                    <Text className="text-primary-300 font-bold text-[4.35vw]">
+                      Criadas
+                    </Text>
+
+                    <Status value={0} />
+                  </View>
+
+                  <View className="flex-row items-center gap-[3vw]">
+                    <Text className="text-secondary-300 font-bold text-[4.35vw]">
+                      Concluídas
+                    </Text>
+
+                    <Status value={0} />
+                  </View>
+                </View>
+
+                <View className="bg-neutral-400 w-full h-[.15vh] my-[3vh]"></View>
               </Container>
             </View>
           </View>
