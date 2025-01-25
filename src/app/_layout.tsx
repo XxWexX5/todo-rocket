@@ -6,6 +6,7 @@ import {
   View,
   ActivityIndicator,
   Text,
+  TextInput,
 } from "react-native";
 
 import { useFonts } from "expo-font";
@@ -27,7 +28,7 @@ type Task = {
 };
 
 export default function RootLayout() {
-  const [isChecked, setIsChecked] = useState(false);
+  const [inputTask, setInputTask] = useState("");
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const [fontsLoaded] = useFonts({
@@ -40,6 +41,17 @@ export default function RootLayout() {
         <ActivityIndicator size="large" color="#0000ff" />
       </View>
     );
+  }
+
+  function handleAddTask() {
+    const id = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
+    setTasks((prev) => [
+      ...prev,
+      { id: id, content: inputTask, isChecked: false },
+    ]);
+
+    return setInputTask("");
   }
 
   return (
@@ -60,8 +72,8 @@ export default function RootLayout() {
             <View className="-mt-[3.3vh]">
               <Container>
                 <View className="flex-row gap-[2vw]">
-                  <Input />
-                  <Button />
+                  <Input value={inputTask} handleInput={setInputTask} />
+                  <Button onPress={handleAddTask} />
                 </View>
 
                 <View className="flex-row justify-between mt-[4.35vh]">
@@ -85,17 +97,19 @@ export default function RootLayout() {
                 <View className="bg-neutral-400 w-full h-[.15vh] my-[4vh]"></View>
 
                 {tasks.length > 0 ? (
-                  tasks.map((task) => {
-                    return (
-                      <Task
-                        key={task.id}
-                        isChecked={task.isChecked}
-                        content={task.content}
-                        handleDeleteTask={() => null}
-                        setIsChecked={() => null}
-                      />
-                    );
-                  })
+                  <View className="gap-y-[2vh]">
+                    {tasks.map((task) => {
+                      return (
+                        <Task
+                          key={task.id}
+                          isChecked={task.isChecked}
+                          content={task.content}
+                          handleDeleteTask={() => null}
+                          setIsChecked={() => null}
+                        />
+                      );
+                    })}
+                  </View>
                 ) : (
                   <NoTasks />
                 )}
