@@ -2,7 +2,7 @@ import { TextInput } from "react-native";
 
 interface InputProps {
   value: string;
-  handleInput: (value: any) => void;
+  handleInput: (value: string) => void;
 }
 
 export function Input({ value, handleInput }: InputProps) {
