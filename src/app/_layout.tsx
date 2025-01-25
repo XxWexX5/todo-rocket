@@ -14,6 +14,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { Status } from "../components/Status";
+import { NoTasks } from "../components/NoTasks";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -40,13 +41,13 @@ export default function RootLayout() {
         <View>
           <Text className="text-primary-300 font-inter">Hello World!</Text>
           <MaterialIcons name="add-circle" size={30} color="#FFF" />;
-          <MaterialIcons name="description" size={30} color="#FFF" />;
           <MaterialIcons name="delete" size={30} color="#FFF" />;
           <View className="flex-row gap-[2vw]">
             <Input />
             <Button />
           </View>
           <Status value={1} />
+          <NoTasks />
         </View>
       </SafeAreaView>
     </>
