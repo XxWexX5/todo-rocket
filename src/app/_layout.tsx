@@ -3,19 +3,19 @@ import "../styles/global.css";
 import {
   SafeAreaView,
   StatusBar,
-  Text,
   View,
   ActivityIndicator,
+  Image,
 } from "react-native";
 
 import { useFonts } from "expo-font";
 
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
-import { Status } from "../components/Status";
-import { NoTasks } from "../components/NoTasks";
-import { Task } from "../components/Task";
 import { useState } from "react";
+import { Container } from "../components/Container";
+
+import Logo from "../assets/images/logo.svg";
 
 export default function RootLayout() {
   const [isChecked, setIsChecked] = useState(false);
@@ -33,30 +33,31 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <View className="bg-neutral-700">
       <StatusBar
         barStyle="light-content"
         backgroundColor="transparent"
         translucent
       />
 
-      <SafeAreaView className="mt-[7vh] mx-[5vw]">
+      <SafeAreaView className="mt-[7vh]">
         <View>
-          <View className="flex-row gap-[2vw]">
-            <Input />
-            <Button />
+          <View className="justify-center items-center mt-[2vh] mb-[6.5vh]">
+            <Logo width={150} height={80} />
           </View>
-          <Status value={1} />
-          <NoTasks />
 
-          <Task
-            isChecked={isChecked}
-            setIsChecked={setIsChecked}
-            content="Treinar direção"
-            handleDeleteTask={() => null}
-          />
+          <View className="bg-neutral-600 min-h-[100vh]">
+            <View className="-mt-[3.3vh]">
+              <Container>
+                <View className="flex-row gap-[2vw]">
+                  <Input />
+                  <Button />
+                </View>
+              </Container>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
-    </>
+    </View>
   );
 }
