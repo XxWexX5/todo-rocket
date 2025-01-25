@@ -1,5 +1,8 @@
 # Todo Rocket
 
+![image](https://github.com/user-attachments/assets/f0ded792-20c4-43ce-b382-771468b2d6a6)
+
+
 Todo Rocket é uma aplicação de controle de tarefas no estilo to-do list, projetada para ajudar os usuários a organizarem suas atividades de forma prática e eficiente.
 
 ## Funcionalidades
