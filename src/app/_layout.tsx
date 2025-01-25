@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   Text,
   TextInput,
+  ScrollView,
 } from "react-native";
 
 import { useFonts } from "expo-font";
@@ -117,20 +118,42 @@ export default function RootLayout() {
                 <View className="bg-neutral-400 w-full h-[.15vh] my-[4vh]"></View>
 
                 {tasks.length > 0 ? (
-                  <View className="gap-y-[2vh]">
-                    {tasks.map((task) => {
-                      return (
-                        <Task
-                          key={task.id}
-                          id={task.id}
-                          isChecked={task.isChecked}
-                          content={task.content}
-                          handleDeleteTask={handleDeleteTask}
-                          handleCheckTask={handleCheckTask}
-                        />
-                      );
-                    })}
-                  </View>
+                  <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    className="h-[50vh]"
+                  >
+                    <View className="gap-y-[2vh]">
+                      {tasks.map((task) => {
+                        if (!task.isChecked) {
+                          return (
+                            <Task
+                              key={task.id}
+                              id={task.id}
+                              isChecked={task.isChecked}
+                              content={task.content}
+                              handleDeleteTask={handleDeleteTask}
+                              handleCheckTask={handleCheckTask}
+                            />
+                          );
+                        }
+                      })}
+
+                      {tasks.map((task) => {
+                        if (task.isChecked) {
+                          return (
+                            <Task
+                              key={task.id}
+                              id={task.id}
+                              isChecked={task.isChecked}
+                              content={task.content}
+                              handleDeleteTask={handleDeleteTask}
+                              handleCheckTask={handleCheckTask}
+                            />
+                          );
+                        }
+                      })}
+                    </View>
+                  </ScrollView>
                 ) : (
                   <NoTasks />
                 )}
