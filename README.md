@@ -27,7 +27,7 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 - Expo CLI
 - Um emulador Android/iOS configurado ou dispositivo físico com o app Expo Go instalado
 
-### Passos
+### Passos:
 
 **Clone este repositório:**
 
