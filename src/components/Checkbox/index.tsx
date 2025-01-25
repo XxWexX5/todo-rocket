@@ -9,14 +9,20 @@ import {
 import { MaterialIcons } from "@expo/vector-icons";
 
 interface CheckboxProps {
+  id: string;
   isChecked: boolean;
-  setIsChecked: (isChecked: boolean) => void;
+  handleCheckTask: (id: string) => void;
   content: string;
 }
 
-export function Checkbox({ isChecked, setIsChecked, content }: CheckboxProps) {
+export function Checkbox({
+  id,
+  isChecked,
+  handleCheckTask,
+  content,
+}: CheckboxProps) {
   const toggleCheckbox = () => {
-    setIsChecked(!isChecked);
+    handleCheckTask(id);
   };
 
   return (
@@ -37,7 +43,13 @@ export function Checkbox({ isChecked, setIsChecked, content }: CheckboxProps) {
             )}
           </View>
 
-          <Text className="flex-1 text-[4vw] text-white">{content}</Text>
+          <Text
+            className={`flex-1 text-[4vw] text-white ${
+              isChecked && "line-through"
+            }`}
+          >
+            {content}
+          </Text>
         </View>
       </TouchableWithoutFeedback>
     </View>

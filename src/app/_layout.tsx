@@ -54,6 +54,18 @@ export default function RootLayout() {
     return setInputTask("");
   }
 
+  function handleCheckTask(id: string) {
+    const data = tasks.map((task) => {
+      return {
+        id: task.id,
+        content: task.content,
+        isChecked: task.id === id ? !task.isChecked : task.isChecked,
+      };
+    });
+
+    setTasks(data);
+  }
+
   return (
     <View className="bg-neutral-700">
       <StatusBar
@@ -102,10 +114,11 @@ export default function RootLayout() {
                       return (
                         <Task
                           key={task.id}
+                          id={task.id}
                           isChecked={task.isChecked}
                           content={task.content}
                           handleDeleteTask={() => null}
-                          setIsChecked={() => null}
+                          handleCheckTask={handleCheckTask}
                         />
                       );
                     })}

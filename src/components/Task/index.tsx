@@ -5,23 +5,26 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { colors } from "../../utils/colors";
 
 interface TaskProps {
+  id: string;
   isChecked: boolean;
-  setIsChecked: (isChecked: boolean) => void;
   content: string;
   handleDeleteTask: () => void;
+  handleCheckTask: (id: string) => void;
 }
 
 export function Task({
+  id,
   isChecked,
-  setIsChecked,
   content,
   handleDeleteTask,
+  handleCheckTask,
 }: TaskProps) {
   return (
     <View className="flex-row items-center justify-center gap-[4vw] bg-neutral-500 p-[4vw] rounded-[3vw] border-2 border-neutral-400">
       <Checkbox
+        id={id}
         isChecked={isChecked}
-        setIsChecked={setIsChecked}
+        handleCheckTask={handleCheckTask}
         content={content}
       />
 
