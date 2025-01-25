@@ -17,9 +17,18 @@ import { Container } from "../components/Container";
 
 import Logo from "../assets/images/logo.svg";
 import { Status } from "../components/Status";
+import { NoTasks } from "../components/NoTasks";
+import { Task } from "../components/Task";
+
+type Task = {
+  id: string;
+  isChecked: boolean;
+  content: string;
+};
 
 export default function RootLayout() {
   const [isChecked, setIsChecked] = useState(false);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   const [fontsLoaded] = useFonts({
     Inter: require("../assets/fonts/Inter/inter.ttf"),
@@ -73,7 +82,23 @@ export default function RootLayout() {
                   </View>
                 </View>
 
-                <View className="bg-neutral-400 w-full h-[.15vh] my-[3vh]"></View>
+                <View className="bg-neutral-400 w-full h-[.15vh] my-[4vh]"></View>
+
+                {tasks.length > 0 ? (
+                  tasks.map((task) => {
+                    return (
+                      <Task
+                        key={task.id}
+                        isChecked={task.isChecked}
+                        content={task.content}
+                        handleDeleteTask={() => null}
+                        setIsChecked={() => null}
+                      />
+                    );
+                  })
+                ) : (
+                  <NoTasks />
+                )}
               </Container>
             </View>
           </View>
