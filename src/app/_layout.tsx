@@ -72,6 +72,8 @@ export default function RootLayout() {
     setTasks(data);
   }
 
+  const countTasksChecked = tasks.filter((task) => task.isChecked).length;
+
   return (
     <View className="bg-neutral-700">
       <StatusBar
@@ -100,7 +102,7 @@ export default function RootLayout() {
                       Criadas
                     </Text>
 
-                    <Status value={0} />
+                    <Status value={tasks.length} />
                   </View>
 
                   <View className="flex-row items-center gap-[3vw]">
@@ -108,7 +110,7 @@ export default function RootLayout() {
                       Concluídas
                     </Text>
 
-                    <Status value={0} />
+                    <Status value={countTasksChecked} />
                   </View>
                 </View>
 
