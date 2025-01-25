@@ -1,51 +1,55 @@
-# Welcome to your Expo app 👋
+Todo Rocket
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Todo Rocket é uma aplicação de controle de tarefas no estilo to-do list, projetada para ajudar os usuários a organizarem suas atividades de forma prática e eficiente.
 
-## Get started
+Funcionalidades
 
-1. Install dependencies
+- Adicionar nova tarefa: Permite que o usuário insira novas tarefas na lista.
+- Marcar/desmarcar tarefa como concluída: Possibilita alternar entre o estado concluído e não concluído das tarefas.
+- Remover tarefa: Remove tarefas da listagem com facilidade.
+- Mostrar progresso: Exibe o progresso geral das tarefas concluídas em relação ao total de tarefas cadastradas.
 
-   ```bash
-   npm install
-   ```
+Tecnologias Utilizadas:
 
-2. Start the app
+-React Native: Framework para desenvolvimento mobile.
+- Expo: Plataforma para desenvolvimento, compilação e deploy de aplicações React Native.
+- nativewind: Utilizado para estilização baseada no Tailwind CSS.
 
-   ```bash
-    npx expo start
-   ```
+Como Executar o Projeto
 
-In the output, you'll find options to open the app in a
+Siga os passos abaixo para rodar o projeto localmente:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Pré-requisitos
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Certifique-se de ter as seguintes ferramentas instaladas:
 
-## Get a fresh project
+Node.js
 
-When you're ready, run:
+Expo CLI
 
-```bash
-npm run reset-project
-```
+Um emulador Android/iOS configurado ou dispositivo físico com o app Expo Go instalado
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Passos
 
-## Learn more
+Clone este repositório:
 
-To learn more about developing your project with Expo, look at the following resources:
+git clone https://github.com/seu-usuario/todo-rocket.git
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Acesse a pasta do projeto:
 
-## Join the community
+cd todo-rocket
 
-Join our community of developers creating universal apps.
+Instale as dependências:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# todo-rocket
+npm install
+
+Inicie o servidor de desenvolvimento:
+
+expo start
+
+Escaneie o QR Code exibido no terminal com o aplicativo Expo Go ou abra o projeto no emulador configurado.
+
+
+Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
